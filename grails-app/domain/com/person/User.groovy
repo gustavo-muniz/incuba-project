@@ -1,4 +1,5 @@
 package com.person
+import com.enums.TypeUser;
 
 class User {
 

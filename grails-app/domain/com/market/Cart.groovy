@@ -1,4 +1,6 @@
 package com.market
+import com.person.Client;
+import com.enums.Status;
 
 class Cart {
 

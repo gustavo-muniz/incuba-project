@@ -10,4 +10,8 @@ class Client {
 
     static constraints = {
     }
+
+    static mapping ={
+        table: name: "cli_clients";
+    }
 }
