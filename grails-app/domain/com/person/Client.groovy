@@ -2,8 +2,8 @@ package com.person
 
 class Client {
 
-    String name;
-    String address;
+    public String name;
+    public String address;
 
 
 

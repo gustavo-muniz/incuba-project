@@ -3,9 +3,9 @@ import com.enums.TypeUser;
 
 class User {
 
-    String userMame;
-    String password;
-    TypeUser typeUser;
+    public String userMame;
+    public String password;
+    public TypeUser typeUser;
 
 
     static constraints = {

@@ -3,10 +3,10 @@ import com.enums.Active;
 
 class Product {
 
-    String name;
-    String description;
-    Float value;
-    Active active;
+    public String name;
+    public String description;
+    public float value;
+    public Active active;
 
 
 

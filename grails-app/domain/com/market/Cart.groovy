@@ -4,10 +4,10 @@ import com.enums.Status;
 
 class Cart {
 
-    List<Product> products = new ArrayList<Product>();
-    Client client;
-    Float value;
-    Status status;
+    public List<Product> products = new ArrayList<Product>();
+    public Client client;
+    public Float value;
+    public Status status;
     
     static constraints = {
     }
