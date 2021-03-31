@@ -95,13 +95,14 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: org.postgresql.Driver
+    dialect: org.hibernate.dialect.PostgreSQLDialect
     username: postgres  
     password: root
 
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url: jdbc:postgresql://localhost:5432/iproject_db
     test:
         dataSource:
