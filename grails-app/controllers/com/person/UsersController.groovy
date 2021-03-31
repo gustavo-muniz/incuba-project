@@ -4,29 +4,32 @@ class UsersController {
 
     def index() { }
 
-    public static void form(){
-        render();
-    }
-    public static void editUser(Long id){
-        User user = User.findById(id);
-        render("Users/form.html", user);
+    def listUsers(){
+        def result = UserService.list();
+        render result as JSON
     }
 
-    public static void listUsers(){
-        List<User> users = User.findAll();
-        render(users);
+    def saveUser(){
+        def received = request.JSON;
+        def result = UserService.register(received);
+        render result as JSON
     }
 
-    public static void saveUser(User user){
-        user.save();
+    def removeUser(){
+        def received = request.JSON;
+        def result = UserService.remove(received);
+        render result as JSON
     }
-
-    public static void removeUser(Long id){
-        User user = User.findById(id);
-        user.delete();
-        listUsers();
+    def editUser(){
+        def received = request.JSON;
+        def result = UserService.edit(received);
+        render result as JSON
     }
-
+    def searchUser(){
+        def received = request.JSON;
+        def result = UserService.search(received);
+        render result as JSON
+    }
     
 
 }

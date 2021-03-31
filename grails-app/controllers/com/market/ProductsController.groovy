@@ -5,39 +5,46 @@ class ProductsController {
 
     def index() { }
 
-        public static void editProduct(Long id){
-        Product product = Product.findById();
-        render("Products/form.html", product);
+    def listProducts(){
+        def result = ProductService.list();
+        render result as JSON
     }
 
-    public static void listProducts(){
-        List<Product> products = Product.findAll();
-        render(products);
+    def saveProduct(){
+        def received = request.JSON;
+        def result = ProductService.register(received);
+        render result as JSON
     }
 
-    public static void saveProduct(Product product){
-        product.save();
-        listProducts();
+    def removeProduct(){
+        def received = request.JSON;
+        def result = ProductService.remove(received);
+        render result as JSON
+    }
+    def editProduct(){
+        def received = request.JSON;
+        def result = ProductService.edit(received);
+        render result as JSON
+    }
+    def searchProduct(){
+        def received = request.JSON;
+        def result = ProductService.search(received);
+        render result as JSON
+    }
+    def activateProduct(){
+        def received = request.JSON;
+        def result = ProductService.active(received);
+        render result as JSON
     }
 
-    public static void removeProduct(Long id){
-        Product product = Product.findById(id);
-        product.delete();
+    def disableProduct(){
+        def received = request.JSON;
+        def result = ProductService.disable(received);
+        render result as JSON 
     }
-
-    public static void activateProduct(Long id){
-        Product product = Product.findById(id);
-        product.active = Active.ON;
-    }
-
-    public static void disableProduct(Long id){
-        Product product = Product.findById(id);
-        product.active = Active.OFF; 
-    }
-    public static void listActivedsProducts(){
-        List<Product> products = Product.findAll();
-        List<Product> activedsProducts = products.stream().filter({product -> product.active.equals(Active.ON)});
-        render("Client/catalog.html", activedsProducts);
+    def listActivedsProducts(){
+        def result = ProductService.listActive();
+        render result as JSON 
     }
 
 }
