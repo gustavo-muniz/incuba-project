@@ -3,9 +3,10 @@ package com.market
 class Cart {
 
     def value;
-    
-    static hasMany=[products: Produto]
-    static constraints = {
 
+    static hasMany=[products: Product]
+    
+    static constraints = {
+        value min: 0
     }
 }

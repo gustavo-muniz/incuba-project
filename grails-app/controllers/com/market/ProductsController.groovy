@@ -7,10 +7,14 @@ class ProductsController {
         def result = ProductService.list();
         render result as JSON
     }
-
+    def show(){
+        def received = request.JSON;
+        def result = ProductService.get(received);
+        render result as JSON
+    }
     def store(){
         def received = request.JSON;
-        def result = ProductService.register(received);
+        def result = ProductService.create(received);
         render result as JSON
     }
 
