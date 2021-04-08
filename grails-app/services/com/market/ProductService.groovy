@@ -5,7 +5,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class ProductService {
 
-    def create(def received){
+    def create(def received) {
         Product product = new Product();
         product.name = received.name;
         product.description = received.description;
@@ -14,17 +14,19 @@ class ProductService {
         product.save();
         return[codereturn: 0, message:"Successful registration"]
     }
-    def remove(def received){
-        Product product = Product.findById(received.id);
+    
+    def remove(def product_id) {
+        Product product = Product.get(product_id);
         product.delete();
         return[codereturn: 0, message:"Successful deleted"]
-       
     }
-    def get(def received){
-        Product product = Product.findById(received.id);
+
+    def get(def product_id) {
+        Product product = Product.get(product_id);
         return product;
     }
-    def list(){
+
+    def list() {
         def sqlcatalog= "SELECT name, description, value FROM product ORDER BY name ASC ";
         def result = query.rows(sqlcatalog);
         def names = [];
@@ -38,8 +40,9 @@ class ProductService {
         def transfer = [names: names, descriptions: descriptions, values: values];
         return transfer;
     }
-    def status(def product_id, def status){
-        Product product = Product.findById(product_id);
+
+    def status(def product_id, def status) {
+        Product product = Product.get(product_id);
         product.status = status;
         product.save();
         return product
