@@ -1,5 +1,4 @@
 package com.market
-import com.enums.Active;
 
 class ProductsController {
 
@@ -10,7 +9,7 @@ class ProductsController {
 
     def show() {
         def received = request.JSON;
-        def result = ProductService.get(received);
+        def result = ProductService.get(received.id);
         render result as JSON
     }
 
@@ -22,12 +21,12 @@ class ProductsController {
 
     def destroy() {
         def received = request.JSON;
-        def result = ProductService.remove(received);
+        def result = ProductService.remove(received.id);
         render result as JSON
     }
     def edit() {
         def received = request.JSON;
-        def result = ProductService.edit(received);
+        def result = ProductService.edit(received.id);
         render result as JSON
     }
     def set_status() {
