@@ -2,7 +2,7 @@ package com.person
 
 class UsersController {
 
-    def index() { }
+/*   def index() { }
 
     def listUsers(){
         def result = UserService.list();
@@ -31,5 +31,5 @@ class UsersController {
         render result as JSON
     }
     
-
+*/
 }

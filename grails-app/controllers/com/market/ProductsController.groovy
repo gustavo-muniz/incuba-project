@@ -1,4 +1,5 @@
 package com.market
+import grails.converters.JSON;
 
 class ProductsController {
 
