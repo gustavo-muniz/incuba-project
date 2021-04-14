@@ -1,4 +1,4 @@
-Nova nota 2
+package com.market
 
 Cart.groovy.grails
 
@@ -23,7 +23,7 @@ class Cart {
         table 'boleto'
         version false
         id generator: 'sequence', params: [sequence: 'advertencia_id_seq']
-        
+
     }
 }
 	
