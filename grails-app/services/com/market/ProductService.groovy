@@ -11,8 +11,13 @@ class ProductService {
         product.description = received.description;
         product.value = received.value;
         product.active = received.active;
-        product.save();
-        return[codereturn: 0, message:"Successful registration"]
+        product.validate();
+        if(!product.hasErrors()) {
+            product.save();
+            return[codereturn: 0, message: "Successful registration"]
+        } else {
+            return product.errors.allErrors;
+        }
     }
     
     def remove(def product_id) {
@@ -41,10 +46,10 @@ class ProductService {
         return transfer;
     }
 
-    def status(def product_id, def status) {
-        Product product = Product.get(product_id);
-        product.status = status;
+    def status(def received) {
+        Product product = Product.get(received.id);
+        product.status = received.status;
         product.save();
-        return product
+        return product;
     }
 }
