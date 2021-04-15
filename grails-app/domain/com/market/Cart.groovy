@@ -2,9 +2,9 @@ package com.market
 
 class Cart {
 
-    def value;
+    Float value;
 
-    static hasMany=[products: Product]
+    static hasMany = [products: Product]
     
     static constraints = {
         value min: 0

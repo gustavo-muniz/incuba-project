@@ -2,10 +2,10 @@ package com.market
 
 class Product {
 
-    def name;
-    def description;
-    def value;
-    def status; 
+    String name;
+    String description;
+    Float value;
+    boolean status; 
 
     static constraints = {
         name blank: false, unique: true
