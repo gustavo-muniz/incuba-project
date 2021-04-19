@@ -10,7 +10,7 @@ class ProductService {
         product.name = received.name;
         product.description = received.description;
         product.value = received.value;
-        product.active = received.active;
+        product.status = received.status;
         product.validate();
         if(!product.hasErrors()) {
             product.save();

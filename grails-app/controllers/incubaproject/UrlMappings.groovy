@@ -4,11 +4,11 @@ class UrlMappings {
 
     static mappings = {
         
-        get "/products"(controller: "products", action: "index")
-        post "/products"(controller: "products", action: "store")
-        get "/products/$id"(controller: "products", action: "show")
-        delete "/products/$id"(controller: "products", action: "destroy")
-
+        delete "/$controller/$id(.$format)?"(action:"destroy")
+        get "/$controller(.$format)?"(action:"index")
+        get "/$controller/$id(.$format)?"(action:"show")
+        post "/$controller(.$format)?"(action:"store")
+        
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here
